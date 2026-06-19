@@ -1,0 +1,48 @@
+{
+  "org": "whiteboardrisk.my.salesforce.com",
+  "organization_id": "00D3t000003yapwEAA",
+  "mapped_date": "2026-06-19",
+  "source": "live Salesforce connector (Composio)",
+  "note": "Metadata only — no claimant records / PII stored.",
+  "claim_counts_by_status": {
+    "Closed": 40456,
+    "Open Claim": 6676,
+    "Needs Review": 1508,
+    "Reopened": 413,
+    "blank": 282
+  },
+  "relationships": {
+    "WB_Policy__c.Account__c": "Account",
+    "WB_Policy__c.Issuing_Carrier__c": "Account",
+    "Loss_Run__c.Policy__c": "WB_Policy__c",
+    "Loss_Run_Results__c.Policy_Number__c": "WB_Policy__c",
+    "Loss_Run_Results__c.Case__c": "Case",
+    "Loss_Run_Results__c.Triggering_Loss_Run__c": "Loss_Run__c"
+  },
+  "total_incurred_formula": "Paid_Medical__c + Medical_Reserves__c + Paid_Indemnity__c + Indemnity_Reserve__c + ALE_Cost__c",
+  "objects": {
+    "WB_Policy__c": {
+      "label": "Policy",
+      "keyPrefix": "a0J",
+      "key_fields": ["Name","Policy_Number__c","Status__c","Effective_Date__c","Expiration_Date__c","WC_Renewal_Date__c","Date_First_Written__c","Premium__c","CA_Policy_Premium__c","Payroll__c","Account__c","Issuing_Carrier__c","Billing_Company__c","Line_of_Coverage__c","Covered_States__c","Out_of_State_Policy__c","Current_Policy_Term__c","Days_to_Renewal__c","Loss_Run_Retrieval_Method__c","Loss_Run_Request_Email__c"]
+    },
+    "Loss_Run__c": {
+      "label": "Loss Run (request tracker)",
+      "keyPrefix": "a28",
+      "key_fields": ["Name","Policy__c","Account__c","Status__c","Date_Requested__c","Date_to_Request__c","Day_to_Request__c","Carrier__c","Billing_Carrier__c","Loss_Run_Notes__c"]
+    },
+    "Loss_Run_Results__c": {
+      "label": "Loss Run Results (CLAIMS)",
+      "keyPrefix": "a51",
+      "money_fields": ["Paid_Medical__c","Medical_Reserves__c","Paid_Indemnity__c","Indemnity_Reserve__c","ALE_Cost__c","Indemnity_Incurred_LR__c"],
+      "key_fields": ["Name","Claim_Number__c","Claimant_Name__c","Status__c","Date_of_Loss__c","Date_Closed__c","Date_Reported_to_Carrier_LR__c","Account_Name__c","Policy_Number__c","Policy_Number_Text__c","Case__c","Triggering_Loss_Run__c","Cause_Nature_of_Injury_New_Formula_LR__c","Injury_Description_and_Details__c","Claimant_Age_LR__c","Claimant_Date_of_Birth_LR__c","Claimant_Date_of_Hire_LR__c","Claimant_Job_Title_LR__c"]
+    }
+  },
+  "other_insurance_objects": {
+    "Avg_Claim_Cost__c": "Avg Claim Cost",
+    "Carrier_Rating__c": "Carrier Rating",
+    "License__c": "Insurance Licenses",
+    "Internal_Policy_Tracker__c": "Internal Policy",
+    "Loss_Run_Extraction_Prompt__mdt": "Loss Run Extraction Prompt (metadata type)"
+  }
+}
