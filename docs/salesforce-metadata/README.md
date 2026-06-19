@@ -16,6 +16,8 @@ pulled via the Salesforce connector. **Metadata + org insights only — no busin
 - [[00-org-snapshot]] — limits, **storage**, licenses, users, permissions, automation footprint
 - [[01-object-inventory]] — all 3,181 objects categorized; the business custom objects
 - [[02-data-model-claims]] — policy / loss-run / claims data model + validated SOQL
+- [[03-business-custom-fields]] — full fields for all 25 business custom objects
+- [[04-standard-and-managed]] — standard-object custom fields + managed packages + **storage culprits**
 - `whiteboardrisk-data-model.json` — structured field metadata (claims model)
 
 ## 🚨 Top findings (see [[00-org-snapshot]])
